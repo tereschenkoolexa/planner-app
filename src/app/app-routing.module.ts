@@ -1,8 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EventsComponent } from './events/events.component';
+import { RequirementEditComponent } from './requirements/requirement-edit/requirement-edit.component';
+import { EventStartComponent } from './events/event-start/event-start.component';
+import { EventDetailComponent } from './events/event-detail/event-detail.component';
+import { Page404Component } from './page404/page404.component';
 
-
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/events', pathMatch: 'full'},
+  {
+    path: 'events',
+    component: EventsComponent,
+    children: [
+      { path: '', component: EventStartComponent},
+      { path: ':id', component: EventDetailComponent}
+    ]
+  },
+  { path: 'requirements', component: RequirementEditComponent},
+  { path: '**', component: Page404Component}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
