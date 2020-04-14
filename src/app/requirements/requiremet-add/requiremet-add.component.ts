@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RequirementService } from '../requirement.service';
+import { Requirements } from '../requirements.models';
 
 @Component({
   selector: 'app-requiremet-add',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequiremetAddComponent implements OnInit {
 
-  constructor() { }
+  constructor(private requirementService: RequirementService) { }
+
+  requirementName: string;
+  requirementDescription: string;
 
   ngOnInit(): void {
   }
 
+  addRequirement() {
+    this.requirementService.addNewRequirement(new Requirements(this.requirementName, this.requirementDescription));
+  }
 }
