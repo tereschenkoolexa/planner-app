@@ -1,8 +1,7 @@
-<p>requirements works!</p>
 <ul>
     <div class="row">
         <div class="col">
-          <a class="nav-link" [routerLink]="['/addRequirement']">Add requirement</a>
+          <a type="button" class="btn btn-outline-dark btn-block" [routerLink]="['/addRequirement']">Add requirement</a>
           <app-requiremet-item *ngFor="let item of requirements" [requirement]="item"></app-requiremet-item>
         </div>
     </div>

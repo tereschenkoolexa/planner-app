@@ -1,6 +1,10 @@
 <a [routerLink]="[index]">
-    <h4 class="list-group-heading">{{myEvent.name}} </h4>
-    <p class="list-group-item-text">{{myEvent.description}}</p>
-    <img class="img-fluid" [src]="myEvent.image" alt="">
-  </a>
-  <button (click)="deleteEvent()">Delete</button>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title text-dark">{{myEvent.name}}</h4>
+      <p class="card-text text-dark">{{myEvent.description}}</p>
+    </div>
+    <img class="card-img-bottom" [src]="myEvent.image" alt="Card image" style="width:100%">
+  </div>
+</a>
+<button type="button" class="btn btn-outline-dark btn-block" (click)="deleteEvent()">Delete</button>
