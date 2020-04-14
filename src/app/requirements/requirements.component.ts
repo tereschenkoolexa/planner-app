@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Requirements} from "./requirements.models";
+import { RequirementService } from './requirement.service';
+
 import { from } from 'rxjs';
 
 @Component({
@@ -9,15 +11,15 @@ import { from } from 'rxjs';
 })
 export class RequirementsComponent implements OnInit {
 
-  requirements: Requirements[] =[
-    new Requirements("a1","a1"),
-    new Requirements("b2","b2"),
-    new Requirements("c3","c3"),
-  ];
+  constructor(private requirementService: RequirementService) { }
+  requirements: Requirements[];
 
-  constructor() { }
 
   ngOnInit(): void {
+    this.requirements = this.requirementService.getRequirement();
+    this.requirementService.requirementUpdate.subscribe((requirements: Requirements[])=>{
+      this.requirements = requirements;
+    });
   }
 
 }

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EventsComponent } from './events/events.component';
-import { RequirementEditComponent } from './requirements/requirement-edit/requirement-edit.component';
+import { RequirementsComponent } from './requirements/requirements.component';
 import { EventStartComponent } from './events/event-start/event-start.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import { Page404Component } from './page404/page404.component';
@@ -16,7 +16,7 @@ const routes: Routes = [
       { path: ':id', component: EventDetailComponent}
     ]
   },
-  { path: 'requirements', component: RequirementEditComponent},
+  { path: 'requirements', component: RequirementsComponent},
   { path: '**', component: Page404Component}
 ];
 

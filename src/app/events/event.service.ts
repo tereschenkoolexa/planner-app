@@ -1,7 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Event } from './event.model'
-
-
+import { Event } from './event.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +22,15 @@ export class EventService {
   }
   addSingleEvent(index: number): Event{
     return this.events[index];
+  }
+
+  deleteEvent(item: Event) {
+    console.log(item);
+    let id = this.events.indexOf(item);
+    if (id != null){
+      this.events.splice(id, 1);
+      this.eventUpdate.emit(this.events);
+    }
   }
   constructor() { }
 }

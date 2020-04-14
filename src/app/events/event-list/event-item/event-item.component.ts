@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Event} from "../../event.model"
+import {Event} from '../../event.model';
 import { EventService } from '../../event.service';
 
 
@@ -17,4 +17,13 @@ export class EventItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSelected(){
+    this.eventService.eventSelected.emit(this.myEvent);
+    console.log(this.myEvent);
+  }
+
+  deleteEvent() {
+    console.log(this.myEvent);
+    this.eventService.deleteEvent(this.myEvent);
+  }
 }
